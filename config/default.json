@@ -1,0 +1,5 @@
+{
+  "mongoURI": "mongodb+srv://idan123:idan123@contactkeeper-o6g42.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "jwtSecret": "hjsdhjdskjhdskl",
+  "nodeENV": "development"
+}
