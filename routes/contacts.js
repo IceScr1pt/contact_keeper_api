@@ -72,7 +72,7 @@ router.put('/:id', auth, async (req, res) => {
   if (type) contactFields.type = type;
 
   try {
-    let contact = await Contact.findByIdAndUpdate(req.params.id);
+    let contact = await Contact.findById(req.params.id);
     if (!contact) return res.status(404).json({ msg: 'Contact not found' });
 
     /*Make sure user owns contact by checking if the contact that been found

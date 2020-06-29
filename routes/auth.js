@@ -26,7 +26,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 //@route  POST api/auth
-//@desc   Auth user & get token
+//@desc   Login, Auth user & get token
 //@access Public
 router.post(
   '/',
@@ -47,14 +47,14 @@ router.post(
       let user = await User.findOne({ email });
 
       if (!user) {
-        return res.status(400).json({ msg: 'Invalid  Credntials' });
+        return res.status(400).json({ msg: 'Invalid  Credentials' });
       }
 
       //check if passed in password is the same as the encrypted passwored in the db with bcrypt
       //comapre('password from user','password from db')
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
-        return res.status(400).json({ msg: 'Invalid Credntials' });
+        return res.status(400).json({ msg: 'Invalid  Credentials' });
       }
 
       //if email and password are ok we get a token
